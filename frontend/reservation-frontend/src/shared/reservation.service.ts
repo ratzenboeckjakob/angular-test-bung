@@ -18,11 +18,13 @@ export class ReservationService {
 
   public getSeats(sessionId: number): Observable<ISessionSeatDTO[]> {
     // TODO: get seat data from the backend
-    return new Observable<ISessionSeatDTO[]>(); // delete this line!
+    const url = `${BASE_URL}/${sessionId}/seats`;
+    return this.http.get<ISessionSeatDTO[]>(url);
   }
 
   public bookSeat(seatId: number, person: IPerson): Promise<ITicket> {
     // TODO: reserve the seat at the backend
+
     return new Promise<ITicket>(p => {}); // delete this line!
   }
 }
