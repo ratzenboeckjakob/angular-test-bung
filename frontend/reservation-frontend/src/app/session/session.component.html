@@ -1,0 +1,5 @@
+<mat-card>
+  <app-date-select (selectionChanged)="sessionSelectionChanged(selectedSession)"></app-date-select>
+  <app-seat-overview [selectedSession]="selectedSession"
+    *ngIf="selectedSession !== null"></app-seat-overview>
+</mat-card>

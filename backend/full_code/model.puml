@@ -1,0 +1,46 @@
+@startuml
+hide empty methods
+
+enum Category {
+    VIP,
+    SEAT,
+    STANDING
+}
+
+class Session {
+    id: int
+    date: LocalDate
+    speaker: String
+    seats: List<Seat>
+}
+
+class Seat {
+    id: int
+    category: Category
+    session: Session
+    ticket: Ticket
+}
+
+class Ticket {
+    id: String
+    seat: Seat
+    person: Person
+}
+
+class Person {
+    firstName: String
+    lastName: String
+    dob: LocalDate
+    city: String
+    zip: int
+    street: String
+    streetNo: int
+    mail: String
+}
+
+Seat "n" -l- "1" Category
+Session "1" -l- "n" Seat
+Seat "1" -- "0..1" Ticket
+Ticket "1" -l- "1" Person
+
+@enduml

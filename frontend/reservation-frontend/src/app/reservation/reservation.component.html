@@ -1,0 +1,24 @@
+<mat-card>
+  <div *ngIf="seat !== null" id="seatDiv">
+    <p>
+      You are about to book a seat with the following properties:
+    </p>
+    <ul>
+      <li *ngIf="sessionDate !== null">Date: {{sessionDate | date: 'dd MMM yyyy'}}</li>
+      <li>Category: {{seat.category}}</li>
+      <li>Price: {{seat.price}}</li>
+    </ul>
+  </div>
+  <div>
+    <p>
+      Please enter your personal data:
+    </p>
+    <!-- TODO: create user form and hook up submit action -->
+    <div *ngIf="userForm.touched && !userForm.valid">
+      <p>All Validation errors:</p>
+      <ul>
+        <li *ngFor="let errMsg of validationErrors">{{errMsg}}</li>
+      </ul>
+    </div>
+  </div>
+</mat-card>
